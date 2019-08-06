@@ -3,18 +3,40 @@ package com.spring.aurora.coms.entity;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "customer_price")
 public class CustomerPrice {
     
-    private String priceId;
+	@Id
+    @GeneratedValue
+    @Column(name = "price_id")
+    private long priceId;
+
+	@Column(name = "customer_id")
     private String customerId;
+
+    @Column(name = "product_id")
     private String productId;
+
+    @Column(name = "selling_price")
     private BigDecimal sellingPrice;
+
+    @Column(name = "created_at")
     private Date createdAt;
+
+    @Column(name = "updated_at")
     private Date updatedAt;
-	public String getPriceId() {
+
+    public long getPriceId() {
 		return priceId;
 	}
-	public void setPriceId(String priceId) {
+	public void setPriceId(long priceId) {
 		this.priceId = priceId;
 	}
 	public String getCustomerId() {

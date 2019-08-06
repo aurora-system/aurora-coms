@@ -3,14 +3,28 @@ package com.spring.aurora.coms.entity;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Payment {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="payment_id")
 	private long paymentId;
+	@Column(name="customer_id")
 	private long customerId;
 	private BigDecimal amount;
+	@Column(name="wh_tax")
 	private BigDecimal withholdingTax;
+	@Column(name="payment_type")
 	private String paymentType;
 	private String remarks;
+	@Column(name="created_at")
 	private Date createdAt;
 	
 	public Payment() {}

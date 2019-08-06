@@ -2,19 +2,41 @@ package com.spring.aurora.coms.entity;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Container {
 
-    private String containerId;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="container_id")
+    private long containerId;
+	
+	@Column(name="customer_id")
 	private String customerId;
+	
+	@Column(name="order_id")
 	private String orderId;
+	
 	private String status;
+	
+	@Column(name="round_count")
 	private int roundCount;
+	
+	@Column(name="slim_count")
 	private int slimCount;
+	
+	@Column(name="created_at")
 	private Timestamp createdAt;
-	public String getContainerId() {
+	
+	public long getContainerId() {
 		return containerId;
 	}
-	public void setContainerId(String containerId) {
+	public void setContainerId(long containerId) {
 		this.containerId = containerId;
 	}
 	public String getCustomerId() {
